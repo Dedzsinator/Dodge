@@ -32,9 +32,9 @@ public class HUD {
         g.setColor(Color.white);
         g.drawRect(15, 15, 200 + bounds, 32);
 
-        g.drawString("Score: " + score, 15, 64);
-        g.drawString("Level: " + level, 15, 80);
-        g.drawString("Space for Shop", 15, 94);
+        g.drawString("Pontszám: " + score, 15, 64);
+        g.drawString("Szint: " + level, 15, 80);
+        g.drawString("Szóköz a Bolthoz", 15, 94);
     }
 
     public void setScore(int score) {

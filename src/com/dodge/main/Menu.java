@@ -16,7 +16,7 @@ public class Menu extends MouseAdapter{
     private Handler handler;
     private HUD hud;
     private Random r = new Random();
-
+    
     public Menu(Game game, Handler handler, HUD hud) {
         this.game = game;
         this.hud = hud;
@@ -30,23 +30,32 @@ public class Menu extends MouseAdapter{
         if(game.gameState == Game.STATE.Menu) {
         	
         	//PLAY BUTTON
-            if (mouseOver(mx, my, 210, 150, 200, 64)) {
+            if (mouseOver(mx, my, 420, 200, 400, 64)) {
                 game.gameState = STATE.Select;
-            	
+                AudioPlayer.getSound("menu_sound").play();
                 return;
             }
             
+            //SKIN BUTTON
+            if(mouseOver(mx, my,500, 100, 200, 64)) {
+            	game.gameState = STATE.Skin;
+            }
             
             //HELP BUTTON
-            if (mouseOver(mx, my, 210, 250, 200, 64)) {
+            if (mouseOver(mx, my, 420, 330, 400, 64)) {
                 game.gameState = Game.STATE.Help;
                 
 
             }
             
+            //CREDITS BUTTON
+            if (mouseOver(mx, my, 420, 460, 400, 64)) {
+            	game.gameState = Game.STATE.Credits;
+            }
+            
             
             //EXIT BUTTON
-            if (mouseOver(mx, my, 210, 350, 200, 64)) {
+            if (mouseOver(mx, my, 420, 590, 400, 64)) {
                 System.exit(1);
                 
             }         
@@ -61,38 +70,42 @@ public class Menu extends MouseAdapter{
 
                 }
             }
+            
+            AudioPlayer.getSound("menu_sound").play();
         }
         
+        //DIFFICULTY SELECTION
         if(game.gameState == Game.STATE.Select) {
         	
         	//NORMAL BUTTON
-            if (mouseOver(mx, my, 210, 150, 200, 64)) {
+            if (mouseOver(mx, my, 420, 200, 400, 64)) {
                 game.gameState = Game.STATE.Game;
                 handler.addObject(new Player(Game.WIDTH / 2 - 32, Game.HEIGHT / 2 - 32, ID.Player, handler));
                 handler.clearEnemys();
                 handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy,handler));
             	
                 game.diff = 0;
+                AudioPlayer.getSound("menu_sound").play();
                 
             }
             
             
             //HARD BUTTON
-            if (mouseOver(mx, my, 210, 250, 200, 64)) {
+            if (mouseOver(mx, my, 420, 330, 400, 64)) {
             	game.gameState = Game.STATE.Game;
                 handler.addObject(new Player(Game.WIDTH / 2 - 32, Game.HEIGHT / 2 - 32, ID.Player, handler));
                 handler.clearEnemys();
                 handler.addObject(new HardEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy,handler));
             	
                 game.diff = 1;
-                
-
+                AudioPlayer.getSound("menu_sound").play();
             }
             
             
             //BACK BUTTON
-            if (mouseOver(mx, my, 210, 350, 200, 64)) {
+            if (mouseOver(mx, my, 460, 660, 300, 64)) {
             	game.gameState = Game.STATE.Menu;
+            	AudioPlayer.getSound("menu_sound").play();
                 return;
             	}         
             
@@ -106,15 +119,38 @@ public class Menu extends MouseAdapter{
                     handler.addObject(new Player(Game.WIDTH / 2 - 32, Game.HEIGHT / 2 - 32, ID.Player, handler));
                     handler.clearEnemys();
                     handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50),ID.BasicEnemy, handler));
-
+                    AudioPlayer.getSound("menu_sound").play();
                 }
             }
         }
         
+        /*
+        //SKINS SECTION
+        if(game.gameState == Game.STATE.Skin) {
+        	
+        	
+        //BACK BUTTON
+          if (mouseOver(mx, my, 210, 350, 200, 64)) {
+            game.gameState = Game.STATE.Menu;
+            return;
+            }    
+        }
+        */
+        
+        //BACK CREDITS BUTTON
+        if (game.gameState == Game.STATE.Credits) {
+        	if (mouseOver(mx, my, 460, 660, 300, 64)) {
+        		game.gameState = Game.STATE.Menu;
+        		AudioPlayer.getSound("menu_sound").play();
+        		return;
+        	}
+        }
+        
         //BACK HELP BUTTON
         if (game.gameState == Game.STATE.Help) {
-            if (mouseOver(mx, my, 210, 350, 200, 64)) {
+            if (mouseOver(mx, my, 460, 660, 300, 64)) {
                 game.gameState = Game.STATE.Menu;
+                AudioPlayer.getSound("menu_sound").play();
                 return;
             }
         }
@@ -122,14 +158,23 @@ public class Menu extends MouseAdapter{
         
       //TRY AGAIN BUTTON
         if (game.gameState == Game.STATE.End) {
-            if (mouseOver(mx, my, 210, 350, 200, 64)) {
+            if (mouseOver(mx, my, 460, 410, 300, 64)) {
                 game.gameState = Game.STATE.Game;
                 hud.setLevel(1);
                 hud.setScore(0);
                 handler.addObject(new Player(Game.WIDTH / 2 - 32, Game.HEIGHT / 2 - 32, ID.Player, handler));
                 handler.clearEnemys();
                 handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy,handler));
-
+                AudioPlayer.getSound("menu_sound").play();
+            }
+        }
+        
+      //END TO MENU BUTTON
+        if (game.gameState == Game.STATE.End) {
+            if (mouseOver(mx, my, 460, 660, 300, 64)) {
+                game.gameState = Game.STATE.Menu;
+                AudioPlayer.getSound("menu_sound").play();
+                return;
             }
         }
 
@@ -161,20 +206,21 @@ public class Menu extends MouseAdapter{
 
         g.setFont(fnt);
         g.setColor(Color.white);
-        g.drawString("Dodge!", 240, 70);
+        g.drawString("Dodge!", 540, 90);
 
 
         g.setFont(fnt2);
-        g.drawRect(210, 150, 200, 64);
-        g.drawString("Play", 270, 190);
-
+        g.drawRect(420, 200, 400, 64);
+        g.drawString("Játék", 580, 240);
         
-        g.drawRect(210, 250, 200, 64);
-        g.drawString("Help", 270, 290);
+        g.drawRect(420, 330, 400, 64);
+        g.drawString("Segíség", 565, 370);
 
-
-        g.drawRect(210, 350, 200, 64);
-        g.drawString("Quit", 270, 390);
+        g.drawRect(420, 460, 400, 64);
+        g.drawString("Készítette", 550, 500);
+        
+        g.drawRect(420, 590, 400, 64);
+        g.drawString("Kilépés", 570, 630);
 
         }else if(game.gameState == Game.STATE.Help) {
             Font fnt = new Font("arial", 1, 50);
@@ -183,30 +229,68 @@ public class Menu extends MouseAdapter{
 
             g.setFont(fnt);
             g.setColor(Color.white);
-            g.drawString("Help", 240, 70);
+            g.drawString("Segítség", 510, 90);
 
             g.setFont(fnt3);
-            g.drawString("Use WASD keys to move player and dodge enemies", 50, 300);
+            g.drawString("Használd a WASD gombokat, hogy mozogj", 415, 360);
 
             g.setFont(fnt2);
-            g.drawRect(210, 350, 200, 64);
-            g.drawString("Back", 270, 390);
+            g.drawRect(460, 660, 300, 64);
+            g.drawString("Vissza", 560, 700);
             
-        } else if (game.gameState == Game.STATE.End) {
+        }
+        else if(game.gameState == Game.STATE.Skin) {
             Font fnt = new Font("arial", 1, 50);
             Font fnt2 = new Font("arial", 1, 30);
             Font fnt3 = new Font("arial", 1, 20);
 
             g.setFont(fnt);
             g.setColor(Color.white);
-            g.drawString("Game Over", 180, 70);
+            g.drawString("Kinézetek", 540, 90);
 
             g.setFont(fnt3);
-            g.drawString("You lost with a score of: " + hud.getScore(), 175, 300);
+            g.drawString("Választható kinézetek", 50, 300);
 
             g.setFont(fnt2);
-            g.drawRect(210, 350, 200, 64);
-            g.drawString("Try Again", 245, 390);
+            g.drawRect(460, 660, 300, 64);
+            g.drawString("Vissza", 560, 700);
+            
+        }else if(game.gameState == Game.STATE.Credits) {
+            Font fnt = new Font("arial", 1, 50);
+            Font fnt2 = new Font("arial", 1, 30);
+            Font fnt3 = new Font("arial", 1, 20);
+
+            g.setFont(fnt);
+            g.setColor(Color.white);
+            g.drawString("Készítette", 500, 90);
+
+            g.setFont(fnt3);
+            g.drawString("Program: Dégi Nándor", 520, 300);
+            g.drawString("Rajzok: Szõvérfi Tamás", 510, 400);
+
+            g.setFont(fnt2);
+            g.drawRect(460, 660, 300, 64);
+            g.drawString("Vissza", 560, 700);
+            
+        }else if (game.gameState == Game.STATE.End) {
+            Font fnt = new Font("arial", 1, 50);
+            Font fnt2 = new Font("arial", 1, 30);
+            Font fnt3 = new Font("arial", 1, 20);
+
+            g.setFont(fnt);
+            g.setColor(Color.white);
+            g.drawString("Meghaltál", 500, 90);
+
+            g.setFont(fnt3);
+            g.drawString("Pontszámod: " + hud.getScore(), 520, 300);
+
+            g.setFont(fnt2);
+            g.drawRect(460, 410, 300, 64);
+            g.drawString("Próbáld Újra", 520, 455);
+            
+            g.setFont(fnt2);
+            g.drawRect(460, 660, 300, 64);
+            g.drawString("Vissza a menübe", 490, 700);
         } else if(game.gameState == Game.STATE.Select) {
 
             Font fnt = new Font("arial", 1, 50);
@@ -214,20 +298,20 @@ public class Menu extends MouseAdapter{
 
             g.setFont(fnt);
             g.setColor(Color.white);
-            g.drawString("SELECT DIFFICULTY", 60, 70);
+            g.drawString("Válassz nehézséget", 370, 90);
 
 
             g.setFont(fnt2);
-            g.drawRect(210, 150, 200, 64);
-            g.drawString("Normal", 260, 190);
+            g.drawRect(420, 200, 400, 64);
+            g.drawString("Normál", 565, 240);
 
             
-            g.drawRect(210, 250, 200, 64);
-            g.drawString("Hard", 275, 290);
+            g.drawRect(420, 330, 400, 64);
+            g.drawString("Nehéz", 568, 370);
 
 
-            g.drawRect(210, 350, 200, 64);
-            g.drawString("Back", 270, 390);
+            g.drawRect(460, 660, 300, 64);
+            g.drawString("Vissza", 560, 700);
 
             }
     }

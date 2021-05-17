@@ -24,26 +24,26 @@ public class Shop extends MouseAdapter {
 		
 		g.setColor(Color.white);
 		g.setFont(new Font("arial", 0, 48));
-		g.drawString("Shop", Game.WIDTH/2 - 100, 50);
+		g.drawString("Bolt", 540, 90);
 		
 		//BOX 1
 		g.setFont(new Font("arial", 0, 12));
-		g.drawString("Upgrade Health", 110, 120);
-		g.drawString("Cost: " + B1, 110, 140);
-		g.drawRect(100, 100, 100, 80);
+		g.drawString("Élet fejlesztés", 310, 220);
+		g.drawString("Ár: " + B1, 310, 240);
+		g.drawRect(300, 200, 100, 50);
 		
 		//BOX 2
-		g.drawString("Upgrade Speed", 260, 120);
-		g.drawString("Cost: " + B2, 260, 140);
-		g.drawRect(250, 100, 100, 80);
+		g.drawString("Sebesség fejlesztés", 460, 220);
+		g.drawString("Ár: " + B2, 460, 240);
+		g.drawRect(450, 200, 135, 50);
 				
 		//BOX 3
-		g.drawString("Refill Health", 410, 120);
-		g.drawString("Cost: " + B3, 410, 140);
-		g.drawRect(400, 100, 100, 80);
+		g.drawString("Élet újratöltése", 650, 220);
+		g.drawString("Ár: " + B3, 650, 240);
+		g.drawRect(640, 200, 100, 50);
 		
-		g.drawString("Score: " + hud.getScore(), Game.WIDTH/2-50, 300);
-		g.drawString("Press Space to go back", Game.WIDTH/2-50, 330);
+		g.drawString("Pontszámod: " + hud.getScore(), 1100, 80);
+		g.drawString("A szõközzel visszaléphetsz", 520, 600);
 	}
 	
 	public void mousePressed(MouseEvent e) {
@@ -53,8 +53,8 @@ public class Shop extends MouseAdapter {
 		
 		
 		//BOX 1
-		if(mx >= 100 && mx <= 200) {
-			if(my >= 100 && my <= 180) {
+		if(mx >= 310 && mx <= 410) {
+			if(my >= 200 && my <= 250) {
 				//SELECTED BOX 1
 				if(hud.getScore() >= B1) {
 					hud.setScore(hud.getScore() - B1);
@@ -66,8 +66,8 @@ public class Shop extends MouseAdapter {
 		}
 				
 		//BOX 2
-		if(mx >= 250 && mx <= 350) {
-			if(my >= 100 && my <= 180) {
+		if(mx >= 450 && mx <= 585) {
+			if(my >= 200 && my <= 250) {
 				//SELECTED BOX 2
 				if(hud.getScore() >= B2) {
 					hud.setScore(hud.getScore() - B2);
@@ -79,8 +79,8 @@ public class Shop extends MouseAdapter {
 		}
 								
 		//BOX 3
-		if(mx >= 400 && mx <= 500) {
-			if(my >= 100 && my <= 180) {
+		if(mx >= 640 && mx <= 740) {
+			if(my >= 200 && my <= 250) {
 				//SELECTED BOX 3
 				if(hud.getScore() >= B3) {
 					hud.setScore(hud.getScore() - B3);

@@ -7,11 +7,13 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.util.Random;
 
+import javax.swing.ImageIcon;
+
 public  class Game extends Canvas implements Runnable{
     
     private static final long serialVersionUID = 1L;
 
-    public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
+    public static final int WIDTH = 1280, HEIGHT = WIDTH / 12 * 9;
     private Thread thread;
 
     private boolean running = false;
@@ -35,11 +37,12 @@ public  class Game extends Canvas implements Runnable{
         Help,
         Shop,
         Game,
+        Credits,
+        Skin,
         End
     };
 
     public static STATE gameState = STATE.Menu;
-    
     
     public Game(){
     	
@@ -50,7 +53,10 @@ public  class Game extends Canvas implements Runnable{
         this.addKeyListener(new KeyInput(handler, this));
         this.addMouseListener(menu);
         this.addMouseListener(shop);
-       
+
+        AudioPlayer.load();
+        
+        AudioPlayer.getMusic("music").loop();
         
         new Window(WIDTH, HEIGHT, "Dodge!", this);
 
@@ -128,7 +134,7 @@ public  class Game extends Canvas implements Runnable{
                 }
         	}
         	
-        }else if(gameState == STATE.Menu || gameState == STATE.End || gameState == STATE.Select) {
+        }else if(gameState == STATE.Menu || gameState == STATE.End || gameState == STATE.Select || gameState == STATE.Credits || gameState == STATE.Help || gameState == STATE.Skin) {
             menu.tick();
             handler.tick();
         }
@@ -157,7 +163,7 @@ public  class Game extends Canvas implements Runnable{
             handler.render(g);
         }else if(gameState == STATE.Shop) { 
         	shop.render(g);
-        }else if(gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End || gameState == STATE.Select) {
+        }else if(gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End || gameState == STATE.Select || gameState == STATE.Credits || gameState == STATE.Skin) {
             menu.render(g);
         	handler.render(g);
         }

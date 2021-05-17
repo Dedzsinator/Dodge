@@ -11,6 +11,7 @@ public enum ID {
     MenuParticle(),
     HardEnemy(),
     Particle(),
-    BasicEnemy();
+    BasicEnemy(),
+	GrenaderEnemy();
 
 }

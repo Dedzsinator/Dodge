@@ -30,6 +30,7 @@ public class Spawn {
 				//handler.addObject(new Particle(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.Particle, handler));
 				//handler.addObject(new InvaderEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.InvaderEnemy, handler));
 				
+            	
 				if(hud.getLevel() == 2){
 					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler));
 				}else if (hud.getLevel() == 3){
@@ -68,6 +69,43 @@ public class Spawn {
 					handler.addObject(new EnemyBoss((Game.WIDTH / 2) - 48, -120, ID.EnemyBoss, handler));
 					
 				}
+				else if(hud.getLevel() == 39){
+					handler.clearEnemys();
+					handler.addObject(new EnemyBoss((Game.WIDTH / 2) - 48, -120, ID.EnemyBoss, handler));
+					handler.addObject(new EnemyBoss((Game.WIDTH / 2) - 48, -120, ID.EnemyBoss, handler));
+					
+				}
+				else if(hud.getLevel() == 44){
+					handler.clearEnemys();
+					handler.addObject(new EnemyBoss((Game.WIDTH / 2) - 48, -120, ID.EnemyBoss, handler));
+					handler.addObject(new EnemyBoss((Game.WIDTH / 2) - 48, -120, ID.EnemyBoss, handler));
+					
+				}
+				else if(hud.getLevel() == 48){
+					handler.clearEnemys();
+					handler.addObject(new EnemyBoss((Game.WIDTH / 2) - 48, -120, ID.EnemyBoss, handler));
+					handler.addObject(new EnemyBoss((Game.WIDTH / 2) - 48, -120, ID.EnemyBoss, handler));
+					
+				}
+				else if(hud.getLevel() == 52){
+					handler.clearEnemys();
+					handler.addObject(new EnemyBoss((Game.WIDTH / 2) - 48, -120, ID.EnemyBoss, handler));
+					handler.addObject(new EnemyBoss((Game.WIDTH / 2) - 48, -120, ID.EnemyBoss, handler));
+					
+				}
+				else if(hud.getLevel() == 56){
+					handler.clearEnemys();
+					handler.addObject(new EnemyBoss((Game.WIDTH / 2) - 48, -120, ID.EnemyBoss, handler));
+					handler.addObject(new EnemyBoss((Game.WIDTH / 2) - 48, -120, ID.EnemyBoss, handler));
+					
+				}
+				else if(hud.getLevel() == 60){
+					handler.clearEnemys();
+					handler.addObject(new EnemyBoss((Game.WIDTH / 2) - 48, -120, ID.EnemyBoss, handler));
+					handler.addObject(new EnemyBoss((Game.WIDTH / 2) - 48, -120, ID.EnemyBoss, handler));
+					
+				}
+				
             }else if (game.diff == 1) {
             	
             	hud.setLevel(hud.getLevel() + 1);
