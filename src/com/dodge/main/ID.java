@@ -12,6 +12,7 @@ public enum ID {
     HardEnemy(),
     Particle(),
     BasicEnemy(),
-	GrenaderEnemy();
+	GrenaderEnemy(),
+	Grenade();
 
 }
