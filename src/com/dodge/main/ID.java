@@ -14,5 +14,4 @@ public enum ID {
     BasicEnemy(),
 	GrenaderEnemy(),
 	Grenade();
-
 }

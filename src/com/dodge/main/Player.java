@@ -16,9 +16,6 @@ public class Player extends GameObject {
         super(x, y, id);
         this.handler = handler;
         
-        
-
-
         //velX = 1;
     }
 
