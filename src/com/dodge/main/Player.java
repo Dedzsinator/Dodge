@@ -40,7 +40,7 @@ public class Player extends GameObject {
 
             GameObject tempObject = handler.object.get(i);
             //COLLIDE CODE:
-            if(tempObject.getId() == ID.BasicEnemy || tempObject.getId() == ID.FastEnemy || tempObject.getId() == ID.SmartEnemy){
+            if(tempObject.getId() == ID.BasicEnemy || tempObject.getId() == ID.FastEnemy || tempObject.getId() == ID.SmartEnemy || tempObject.getId() == ID.GrenaderEnemy || tempObject.getId() == ID.Grenade){
                 if(getBounds().intersects(tempObject.getBounds())) {
                     HUD.HEALTH -= 2;
                 }

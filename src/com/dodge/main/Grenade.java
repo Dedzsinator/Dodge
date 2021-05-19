@@ -7,6 +7,7 @@ import java.util.Random;
 
 public class Grenade extends GameObject{
 	private Handler handler;
+	private int scoreKeep = 0;
 	Random r = new Random();
 	
 	public Grenade(int x, int y, ID id, Handler handler) {
@@ -14,8 +15,8 @@ public class Grenade extends GameObject{
 		
 		this.handler = handler;
 
-        //velX = (r.nextInt(5 - -5) + -5);
-        //velY = 5;
+        velX = (r.nextInt(5 - -5) + -5);
+        velY = 5;
     }
 
     public Rectangle getBounds() {
@@ -23,14 +24,24 @@ public class Grenade extends GameObject{
     }
 
     public void tick() {
+    	scoreKeep++;
         x += velX;
         y += velY;
+        if(scoreKeep / 15 == 0) {
+        	scoreKeep = 0;
+        	handler.removeObject(this);
+        	for(int i = 1; i <= 8; i++) {
+        	handler.addObject(new EnemyBossBullet(x+48, y+48, ID.BasicEnemy, handler));
+        	}
+        }
+        
+        handler.addObject(new Trail(x, y, ID.Trail, Color.pink, 16, 16, 0.02f, handler));
     }
 
     public void render(Graphics g) {
-        for(int i = 255; i >= 0; i--) {
-        	g.setColor(new Color(255, i, 0));
+       // for(int i = 255; i >= 0; i--) {
+        	g.setColor(Color.pink);
         	g.fillRect(x, y, 20, 20);
-        }
+        //}
     }
 }

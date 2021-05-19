@@ -8,23 +8,28 @@ import java.awt.image.BufferedImage;
 public class GrenaderEnemy extends GameObject {
 
     private Handler handler;
+    private HUD hud;
+    private int scoreKeep = 0;
     
 
-    public GrenaderEnemy(int x, int y, ID id, Handler handler) {
+    public GrenaderEnemy(int x, int y, ID id, Handler handler, HUD hud) {
         super(x, y, id);
         
         this.handler = handler;
+        this.hud = hud;
 
-        velX = 5;
-        velY = 5;
+        velX = 3;
+        velY = 3;
         
     }
-
+    
+    
     public Rectangle getBounds() {
         return new Rectangle(x, y, 25, 25);
     }
 
     public void tick() {
+    	scoreKeep++;
         x += velX;
         y += velY;
 
@@ -32,6 +37,10 @@ public class GrenaderEnemy extends GameObject {
         if (x <= 0 || x >= Game.WIDTH - 16) velX *= -1;
 
         handler.addObject(new Trail(x, y, ID.Trail, Color.orange, 25, 25, 0.02f, handler));
+        if(scoreKeep / 20 == 0) {
+        	scoreKeep = 0;
+    		handler.addObject(new Grenade(x+25, y+25, ID.Grenade, handler));
+    	}
     }
 	
 	public void render(Graphics g) {

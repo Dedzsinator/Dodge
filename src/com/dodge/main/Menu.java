@@ -266,7 +266,7 @@ public class Menu extends MouseAdapter{
 
             g.setFont(fnt3);
             g.drawString("Program: Dégi Nándor", 520, 300);
-            g.drawString("Rajzok: Szõvérfi Tamás", 510, 400);
+            //g.drawString("Rajzok: Szõvérfi Tamás", 510, 400);
 
             g.setFont(fnt2);
             g.drawRect(460, 660, 300, 64);

@@ -24,9 +24,9 @@ public class Spawn {
             scoreKeep = 0;
             hud.setLevel(hud.getLevel() + 1);
             
-            if(game.diff == 0) {       	
+            if(game.diff == 0) {
 				if(hud.getLevel() == 2){
-					handler.addObject(new GrenaderEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.GrenaderEnemy, handler));
+					handler.addObject(new GrenaderEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.GrenaderEnemy, handler, hud));
 					//handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler));
 				}else if (hud.getLevel() == 3){
 						//handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler));
