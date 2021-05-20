@@ -15,7 +15,7 @@ public class Grenade extends GameObject{
 		
 		this.handler = handler;
 
-        velX = (r.nextInt(5 - -5) + -5);
+        velX = 5;
         velY = 5;
     }
 
@@ -27,11 +27,17 @@ public class Grenade extends GameObject{
     	scoreKeep++;
         x += velX;
         y += velY;
+        
+        if (y <= 0 || y >= Game.HEIGHT - 32) velY *= -1;
+        if (x <= 0 || x >= Game.WIDTH - 16) velX *= -1;
+        
         if(scoreKeep / 15 == 0) {
         	scoreKeep = 0;
-        	handler.removeObject(this);
+        	if(scoreKeep / 90 == 0) {
+            handler.removeObject(this);
         	for(int i = 1; i <= 8; i++) {
-        	handler.addObject(new EnemyBossBullet(x+48, y+48, ID.BasicEnemy, handler));
+        	handler.addObject(new Pellet(x, y, ID.BasicEnemy, handler));
+        	}
         	}
         }
         
@@ -39,9 +45,7 @@ public class Grenade extends GameObject{
     }
 
     public void render(Graphics g) {
-       // for(int i = 255; i >= 0; i--) {
         	g.setColor(Color.pink);
         	g.fillRect(x, y, 20, 20);
-        //}
     }
 }
