@@ -48,6 +48,11 @@ public class Menu extends MouseAdapter{
 
             }
             
+            //MUSIC BUTTON
+            if(mouseOver(mx, my, 200, 800, 400, 64)) {
+            	game.gameState = Game.STATE.Musics;
+            }
+            
             //CREDITS BUTTON
             if (mouseOver(mx, my, 420, 460, 400, 64)) {
             	game.gameState = Game.STATE.Credits;
@@ -145,6 +150,14 @@ public class Menu extends MouseAdapter{
         		return;
         	}
         }
+        //BACK MUSICS BUTTON
+        if (game.gameState == Game.STATE.Musics) {
+        	if (mouseOver(mx, my, 460, 660, 300, 64)) {
+        		game.gameState = Game.STATE.Menu;
+        		AudioPlayer.getSound("menu_sound").play();
+        		return;
+        	}
+        }
         
         //BACK HELP BUTTON
         if (game.gameState == Game.STATE.Help) {
@@ -221,7 +234,10 @@ public class Menu extends MouseAdapter{
         
         g.drawRect(420, 590, 400, 64);
         g.drawString("Kilépés", 570, 630);
-
+        
+        g.drawRect(200, 800, 400, 64);
+        g.drawString("Zenék", 770, 650);
+        
         }else if(game.gameState == Game.STATE.Help) {
             Font fnt = new Font("arial", 1, 50);
             Font fnt2 = new Font("arial", 1, 30);
@@ -238,6 +254,22 @@ public class Menu extends MouseAdapter{
             g.drawRect(460, 660, 300, 64);
             g.drawString("Vissza", 560, 700);
             
+        }
+        else if(game.gameState == Game.STATE.Musics) {
+        	Font fnt = new Font("arial", 1, 50);
+            Font fnt2 = new Font("arial", 1, 30);
+            Font fnt3 = new Font("arial", 1, 20);
+
+            g.setFont(fnt);
+            g.setColor(Color.white);
+            g.drawString("Zenék", 510, 90);
+
+            g.setFont(fnt3);
+            g.drawString("Itt majd a zenék lesznek elérhetoek", 415, 360);
+
+            g.setFont(fnt2);
+            g.drawRect(460, 660, 300, 64);
+            g.drawString("Vissza", 560, 700);
         }
         else if(game.gameState == Game.STATE.Skin) {
             Font fnt = new Font("arial", 1, 50);

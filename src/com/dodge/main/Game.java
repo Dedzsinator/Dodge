@@ -39,6 +39,7 @@ public  class Game extends Canvas implements Runnable{
         Game,
         Credits,
         Skin,
+        Musics,
         End
     };
 

@@ -31,13 +31,11 @@ public class Grenade extends GameObject{
         if (y <= 0 || y >= Game.HEIGHT - 32) velY *= -1;
         if (x <= 0 || x >= Game.WIDTH - 16) velX *= -1;
         
-        if(scoreKeep / 15 == 0) {
+        if(scoreKeep / 90 == 0) {
         	scoreKeep = 0;
-        	if(scoreKeep / 90 == 0) {
             handler.removeObject(this);
         	for(int i = 1; i <= 8; i++) {
         	handler.addObject(new Pellet(x, y, ID.BasicEnemy, handler));
-        	}
         	}
         }
         
