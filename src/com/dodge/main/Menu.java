@@ -44,12 +44,15 @@ public class Menu extends MouseAdapter{
             //HELP BUTTON
             if (mouseOver(mx, my, 420, 330, 400, 64)) {
                 game.gameState = Game.STATE.Help;
-                
-
+            }
+            
+            //SKINS BUTTON
+            if(mouseOver(mx, my, 100, 690, 100, 32)) {
+            	game.gameState = Game.STATE.Skin;
             }
             
             //MUSIC BUTTON
-            if(mouseOver(mx, my, 200, 800, 400, 64)) {
+            if(mouseOver(mx, my, 100, 730, 300, 64)) {
             	game.gameState = Game.STATE.Musics;
             }
             
@@ -63,8 +66,7 @@ public class Menu extends MouseAdapter{
             if (mouseOver(mx, my, 420, 590, 400, 64)) {
                 System.exit(1);
                 
-            }         
-            
+            }
             
             //END GAME
             if (game.gameState == Game.STATE.End) {
@@ -129,18 +131,16 @@ public class Menu extends MouseAdapter{
             }
         }
         
-        /*
-        //SKINS SECTION
+        
+        //BACK SKINS BUTTON
         if(game.gameState == Game.STATE.Skin) {
-        	
-        	
-        //BACK BUTTON
-          if (mouseOver(mx, my, 210, 350, 200, 64)) {
+          if (mouseOver(mx, my, 460, 660, 300, 64)) {
             game.gameState = Game.STATE.Menu;
+            AudioPlayer.getSound("menu_sound").play();
             return;
             }    
         }
-        */
+        //long long x visszakuld egy x szamot ugy hoz letre minden ket szomszedos szam koze beszurja a kulonbseguk moduluszat: 123 11213
         
         //BACK CREDITS BUTTON
         if (game.gameState == Game.STATE.Credits) {
@@ -216,6 +216,7 @@ public class Menu extends MouseAdapter{
 
         Font fnt = new Font("arial", 1, 50);
         Font fnt2 = new Font("arial", 1, 30);
+        Font fnt3 = new Font("arial", 1, 20);
 
         g.setFont(fnt);
         g.setColor(Color.white);
@@ -235,8 +236,12 @@ public class Menu extends MouseAdapter{
         g.drawRect(420, 590, 400, 64);
         g.drawString("Kilépés", 570, 630);
         
-        g.drawRect(200, 800, 400, 64);
-        g.drawString("Zenék", 770, 650);
+        g.setFont(fnt3);
+        g.drawRect(100, 730, 100, 32);
+        g.drawString("Zenék", 120, 753);
+        
+        g.drawRect(100, 690, 100, 32);
+        g.drawString("Kinézetek", 105, 713);
         
         }else if(game.gameState == Game.STATE.Help) {
             Font fnt = new Font("arial", 1, 50);

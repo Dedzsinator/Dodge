@@ -134,7 +134,7 @@ public  class Game extends Canvas implements Runnable{
                 }
         	}
         	
-        }else if(gameState == STATE.Menu || gameState == STATE.End || gameState == STATE.Select || gameState == STATE.Credits || gameState == STATE.Help || gameState == STATE.Skin) {
+        }else if(gameState == STATE.Menu || gameState == STATE.End || gameState == STATE.Select || gameState == STATE.Credits || gameState == STATE.Help || gameState == STATE.Skin || gameState == STATE.Musics) {
             menu.tick();
             handler.tick();
         }
@@ -163,7 +163,7 @@ public  class Game extends Canvas implements Runnable{
             handler.render(g);
         }else if(gameState == STATE.Shop) { 
         	shop.render(g);
-        }else if(gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End || gameState == STATE.Select || gameState == STATE.Credits || gameState == STATE.Skin) {
+        }else if(gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End || gameState == STATE.Select || gameState == STATE.Credits || gameState == STATE.Skin || gameState == STATE.Musics) {
             menu.render(g);
         	handler.render(g);
         }
