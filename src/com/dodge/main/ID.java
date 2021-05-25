@@ -14,5 +14,6 @@ public enum ID {
     BasicEnemy(),
 	GrenaderEnemy(),
 	WizardEnemy(),
+	WizardBullet(),
 	Grenade();
 }

@@ -17,7 +17,7 @@ public class AudioPlayer {
 		try {
 			soundMap.put("menu_sound", new Sound("res/click_sound.ogg"));
 			
-			musicMap.put("music", new Music("res/background_music.ogg"));
+			musicMap.put("music", new Music("res/musics/background_music.ogg"));
 		} catch (SlickException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

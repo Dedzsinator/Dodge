@@ -39,7 +39,7 @@ public class WizardEnemy extends GameObject{
         if(scoreKeep == 80) {
         	scoreKeep = 0;
         	 if(scoreKeep == 0)
-         		handler.addObject(new Grenade(x+25, y+25, ID.Grenade, handler));
+         		handler.addObject(new SmartEnemy(x+25, y+25, ID.WizardBullet, handler));
         }
     }
 	
