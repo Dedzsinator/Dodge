@@ -18,6 +18,8 @@ public class AudioPlayer {
 			soundMap.put("menu_sound", new Sound("res/click_sound.ogg"));
 			
 			musicMap.put("music", new Music("res/musics/formidable.ogg"));
+			musicMap.put("music1", new Music("res/musics/japanese.ogg"));
+			musicMap.put("music2", new Music("res/musics/background_music.ogg"));
 		} catch (SlickException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -140,7 +140,6 @@ public class Menu extends MouseAdapter{
             return;
             }    
         }
-        //long long x visszakuld egy x szamot ugy hoz letre minden ket szomszedos szam koze beszurja a kulonbseguk moduluszat: 123 11213
         
         //BACK CREDITS BUTTON
         if (game.gameState == Game.STATE.Credits) {
@@ -158,6 +157,31 @@ public class Menu extends MouseAdapter{
         		return;
         	}
         }
+        
+        //MUSIC CHOOSING - alap
+        if (game.gameState == Game.STATE.Musics) {
+        	if (mouseOver(mx, my,480, 160, 280, 42)) {
+        		AudioPlayer.getMusic("music2").loop();
+        		return;
+        	}
+        }
+        
+        //MUSIC CHOOSING - formidable
+        if (game.gameState == Game.STATE.Musics) {
+        	if (mouseOver(mx, my, 480, 260, 280, 42)) {
+        		AudioPlayer.getMusic("music").loop();
+        		return;
+        	}
+        }
+        
+        //MUSIC CHOOSING - japan
+        if (game.gameState == Game.STATE.Musics) {
+        	if (mouseOver(mx, my, 480, 360, 280, 42)) {
+        		AudioPlayer.getMusic("music1").loop();
+        		return;
+        	}
+        }
+        
         
         //BACK HELP BUTTON
         if (game.gameState == Game.STATE.Help) {
@@ -267,10 +291,22 @@ public class Menu extends MouseAdapter{
 
             g.setFont(fnt);
             g.setColor(Color.white);
-            g.drawString("Zenék", 510, 90);
+            g.drawString("Zenék", 560, 90);
 
+            //alap
             g.setFont(fnt3);
-            g.drawString("Itt majd a zenék lesznek elérhetoek", 415, 360);
+            g.drawRect(480, 160, 280, 42);
+            g.drawString("Alap", 595, 190);
+            
+            //formidable
+            g.setFont(fnt3);
+            g.drawRect(480, 260, 280, 42);
+            g.drawString("Formidable", 565, 290);
+            //japanese
+            g.setFont(fnt3);
+            g.drawRect(480, 360, 280, 42);
+            g.drawString("Japán style", 565, 390);
+            
 
             g.setFont(fnt2);
             g.drawRect(460, 660, 300, 64);
@@ -303,7 +339,6 @@ public class Menu extends MouseAdapter{
 
             g.setFont(fnt3);
             g.drawString("Program: Dégi Nándor", 520, 300);
-            //g.drawString("Rajzok: Szõvérfi Tamás", 510, 400);
 
             g.setFont(fnt2);
             g.drawRect(460, 660, 300, 64);
