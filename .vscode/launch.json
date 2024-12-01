@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Main Class",
+            "request": "launch",
+            "mainClass": "your.main.ClassName", // Replace with your main class name
+            "vmArgs": "-Djava.library.path=${workspaceFolder}/libs/lwjgl/native/windows",
+            "classpath": [
+                "${workspaceFolder}/bin",
+                "${workspaceFolder}/libs/jars/jinput.jar",
+                "${workspaceFolder}/libs/jars/jogg-0.0.7.jar",
+                "${workspaceFolder}/libs/jars/jorbis-0.0.15.jar",
+                "${workspaceFolder}/libs/jars/lwjgl.jar",
+                "${workspaceFolder}/libs/jars/slick.jar"
+            ]
+        }
+    ]
+}

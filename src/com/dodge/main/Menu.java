@@ -249,23 +249,23 @@ public class Menu extends MouseAdapter{
 
         g.setFont(fnt2);
         g.drawRect(420, 200, 400, 64);
-        g.drawString("J·tÈk", 580, 240);
+        g.drawString("j√°t√©k", 580, 240);
         
         g.drawRect(420, 330, 400, 64);
-        g.drawString("SegÌsÈg", 565, 370);
+        g.drawString("Seg√≠ts√©g", 565, 370);
 
         g.drawRect(420, 460, 400, 64);
-        g.drawString("KÈszÌtette", 550, 500);
+        g.drawString("K√©sz√≠tette", 550, 500);
         
         g.drawRect(420, 590, 400, 64);
-        g.drawString("KilÈpÈs", 570, 630);
+        g.drawString("Kil√©p√©s", 570, 630);
         
         g.setFont(fnt3);
         g.drawRect(100, 730, 100, 32);
-        g.drawString("ZenÈk", 120, 753);
+        g.drawString("Zen√©k", 120, 753);
         
         g.drawRect(100, 690, 100, 32);
-        g.drawString("KinÈzetek", 105, 713);
+        g.drawString("Kin√©zetek", 105, 713);
         
         }else if(game.gameState == Game.STATE.Help) {
             Font fnt = new Font("arial", 1, 50);
@@ -274,10 +274,10 @@ public class Menu extends MouseAdapter{
 
             g.setFont(fnt);
             g.setColor(Color.white);
-            g.drawString("SegÌtsÈg", 510, 90);
+            g.drawString("Seg√≠ts√©g", 510, 90);
 
             g.setFont(fnt3);
-            g.drawString("Haszn·ld a WASD gombokat, hogy mozogj", 415, 360);
+            g.drawString("Haszn√°ld a WASD gombokat, hogy mozogj", 415, 360);
 
             g.setFont(fnt2);
             g.drawRect(460, 660, 300, 64);
@@ -291,7 +291,7 @@ public class Menu extends MouseAdapter{
 
             g.setFont(fnt);
             g.setColor(Color.white);
-            g.drawString("ZenÈk", 560, 90);
+            g.drawString("ZenÔøΩk", 560, 90);
 
             //alap
             g.setFont(fnt3);
@@ -305,7 +305,7 @@ public class Menu extends MouseAdapter{
             //japanese
             g.setFont(fnt3);
             g.drawRect(480, 360, 280, 42);
-            g.drawString("Jap·n style", 565, 390);
+            g.drawString("Jap√°n style", 565, 390);
             
 
             g.setFont(fnt2);
@@ -319,10 +319,10 @@ public class Menu extends MouseAdapter{
 
             g.setFont(fnt);
             g.setColor(Color.white);
-            g.drawString("KinÈzetek", 540, 90);
+            g.drawString("Kin√©zetek", 540, 90);
 
             g.setFont(fnt3);
-            g.drawString("V·laszthatÛ kinÈzetek", 50, 300);
+            g.drawString("V√°laszthat√≥ kin√©zetek", 50, 300);
 
             g.setFont(fnt2);
             g.drawRect(460, 660, 300, 64);
@@ -335,10 +335,10 @@ public class Menu extends MouseAdapter{
 
             g.setFont(fnt);
             g.setColor(Color.white);
-            g.drawString("KÈszÌtette", 500, 90);
+            g.drawString("K√©sz√≠tette", 500, 90);
 
             g.setFont(fnt3);
-            g.drawString("Program: DÈgi N·ndor", 520, 300);
+            g.drawString("Program: D√©gi N√°ndor", 520, 300);
 
             g.setFont(fnt2);
             g.drawRect(460, 660, 300, 64);
@@ -351,18 +351,18 @@ public class Menu extends MouseAdapter{
 
             g.setFont(fnt);
             g.setColor(Color.white);
-            g.drawString("Meghalt·l", 500, 90);
+            g.drawString("Meghalt√°l", 500, 90);
 
             g.setFont(fnt3);
-            g.drawString("Pontsz·mod: " + hud.getScore(), 520, 300);
+            g.drawString("Pontsz√°mod: " + hud.getScore(), 520, 300);
 
             g.setFont(fnt2);
             g.drawRect(460, 410, 300, 64);
-            g.drawString("PrÛb·ld ⁄jra", 520, 455);
+            g.drawString("Pr√≥b√°ld √∫jra", 520, 455);
             
             g.setFont(fnt2);
             g.drawRect(460, 660, 300, 64);
-            g.drawString("Vissza a men¸be", 490, 700);
+            g.drawString("Vissza a men√ºbe", 490, 700);
         } else if(game.gameState == Game.STATE.Select) {
 
             Font fnt = new Font("arial", 1, 50);
@@ -370,16 +370,16 @@ public class Menu extends MouseAdapter{
 
             g.setFont(fnt);
             g.setColor(Color.white);
-            g.drawString("V·lassz nehÈzsÈget", 370, 90);
+            g.drawString("V√°lassz neh√©zs√©get", 370, 90);
 
 
             g.setFont(fnt2);
             g.drawRect(420, 200, 400, 64);
-            g.drawString("Norm·l", 565, 240);
+            g.drawString("Norm√°l", 565, 240);
 
             
             g.drawRect(420, 330, 400, 64);
-            g.drawString("NehÈz", 568, 370);
+            g.drawString("Neh√©z", 568, 370);
 
 
             g.drawRect(460, 660, 300, 64);
